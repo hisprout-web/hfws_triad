@@ -85,10 +85,15 @@ def load_all(equity: float):
 
 
 def sync_drafts(df: pd.DataFrame, params: dict):
+    if df is None or df.empty:
+        return
+    if "ENTRY_SIGNAL" not in df.columns:
+        return
+
     tickets = load_json("outputs/trade_tickets.json", default=[])
     by_ticker = {t["ticker"]: t for t in tickets}
 
-    for _, row in df[df.get("ENTRY_SIGNAL", False)].iterrows():
+    for _, row in df[df["ENTRY_SIGNAL"] == True].iterrows():
         ticker = row["ticker"]
         existing = by_ticker.get(ticker)
         status = existing.get("status", "DRAFT") if existing else "DRAFT"
@@ -148,8 +153,8 @@ if st.button("Refresh Data"):
 signals, params, blocklist = load_all(equity)
 if signals.empty:
     st.warning("No universe candidates found. Fill config/funds.yaml with valid 10-digit CIK values.")
-
-sync_drafts(signals, params)
+else:
+    sync_drafts(signals, params)
 tickets = pd.DataFrame(load_json("outputs/trade_tickets.json", default=[]))
 
 if not tickets.empty:
