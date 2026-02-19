@@ -1,0 +1,16 @@
+funds:
+  - fund_id: duquesne
+    name: Duquesne (Stanley Druckenmiller)
+    cik: "0001006438"
+    weight: 0.4
+    enabled: true
+  - fund_id: keysquare
+    name: Key Square (Scott Bessent)
+    cik: ""
+    weight: 0.3
+    enabled: true
+  - fund_id: tigerglobal
+    name: Tiger Global
+    cik: "0001167483"
+    weight: 0.3
+    enabled: true

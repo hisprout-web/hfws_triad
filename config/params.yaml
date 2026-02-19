@@ -1,0 +1,16 @@
+R_per_trade: 0.006
+max_pos: 0.12
+rr_min: 2.0
+structure_min: 0.5
+entry_band_lower: -1.0
+entry_band_upper: 0.3
+vix_panic_level: 25
+vix_gap_panic: 0.25
+approval_block_on_earnings: true
+approval_reduce_shares_on_earnings: 0.5
+agility_tp1_pct: 0.05
+agility_tp2_pct: 0.10
+agility_tp1_sell_pct: 0.30
+agility_tp2_sell_pct: 0.30
+fast_exit_rs_threshold: 0.95
+fast_exit_sma20_consecutive_days: 2
